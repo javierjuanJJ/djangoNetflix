@@ -22,6 +22,7 @@ from djangoNetflix import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:
