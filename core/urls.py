@@ -1,10 +1,14 @@
 from django.urls import path
 
-from core.views import Home, Profile_List, Profile_Create
+from core.views import Home, Watch, ShowMovieDetail, ShowMovie, ProfileList, ProfileCreate
 
 app_name = 'core'
+
 urlpatterns = [
     path('',Home.as_view()),
-    path('profile/', Profile_List.as_view(), name='profile_list'),
-    path('profile/create/', Profile_Create.as_view(), name='profile_create'),
+    path('profile/',ProfileList.as_view(),name='profile_list'),
+    path('profile/create/',ProfileCreate.as_view(),name='profile_create'),
+    path('watch/<str:profile_id>/',Watch.as_view(),name='watch'),
+    path('movie/detail/<str:movie_id>/',ShowMovieDetail.as_view(),name='show_det'),
+    path('movie/play/<str:movie_id>/',ShowMovie.as_view(),name='play')
 ]
